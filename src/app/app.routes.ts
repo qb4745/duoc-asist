@@ -14,8 +14,16 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/professor/professor.page').then( m => m.ProfessorPage)
   },
   {
+    path: 'registrar',
+    loadComponent: () => import('./pages/registrar/registrar.page').then( m => m.RegistrarPage)
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full',
+  },
+  {
+    path: 'registrar',
+    loadComponent: () => import('./pages/registrar/registrar.page').then( m => m.RegistrarPage)
   }
 ];

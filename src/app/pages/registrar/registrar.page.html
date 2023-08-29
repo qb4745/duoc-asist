@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="custom-title">Registrar Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light" class="content-wrapper">
+  <form [formGroup]="userForm" (ngSubmit)="createUser()">
+    <ion-input formControlName="id" type="number" placeholder="ID"></ion-input>
+    <ion-input formControlName="rut" type="text" placeholder="RUT"></ion-input>
+    <ion-input
+      formControlName="email"
+      type="email"
+      placeholder="Email"
+    ></ion-input>
+    <ion-input
+      formControlName="firstName"
+      type="text"
+      placeholder="First Name"
+    ></ion-input>
+    <ion-input
+      formControlName="lastName"
+      type="text"
+      placeholder="Last Name"
+    ></ion-input>
+    <ion-input
+      formControlName="userType"
+      type="text"
+      placeholder="User Type"
+    ></ion-input>
+    <ion-label type="text">User Enabled</ion-label>
+    <ion-checkbox
+      formControlName="isEnabled"
+      label="User Enabled"
+    ></ion-checkbox>
+    <ion-input
+      formControlName="phone"
+      type="tel"
+      placeholder="Phone"
+    ></ion-input>
+    <ion-input
+      formControlName="address"
+      type="text"
+      placeholder="Address"
+    ></ion-input>
+    <ion-input
+      formControlName="username"
+      type="text"
+      placeholder="Username"
+    ></ion-input>
+    <ion-input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+    ></ion-input>
+
+    <ion-button type="submit">Create User</ion-button>
+  </form>
+  <ion-button (click)="goToLogin()">Go to Login</ion-button>
+  <ion-button (click)="printUserService()">User Service List</ion-button>
+</ion-content>
