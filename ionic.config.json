@@ -1,0 +1,7 @@
+{
+  "name": "duoc-asist",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
