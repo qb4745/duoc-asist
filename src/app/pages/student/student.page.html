@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Estudiantes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <h1 class="center-content" style="padding-bottom: 50px">
+    Welcome {{ userInfoReceived?.firstName }}
+  </h1>
+  <ion-list [inset]="true">
+    <ion-list-header>
+      <ion-label>User Information: </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>username: {{ userInfoReceived?.username }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>name: {{ userInfoReceived?.firstName }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>last name: {{ userInfoReceived?.lastName }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>education_level: {{ userInfoReceived?.userType }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-img
+    class="custom-img"
+    src="./assets/img/confiteria.jpg"
+    alt="Confiteria Logo"
+  ></ion-img>
+</ion-content>

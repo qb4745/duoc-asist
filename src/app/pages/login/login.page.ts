@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { UserModel } from 'src/app/models/UserModel';
 import { IUserLogin } from 'src/app/models/IUserLogin';
 import { NavigationExtras, Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -103,7 +103,6 @@ export class LoginPage implements OnInit {
     for(let i = 0; i < this.listUser.length; i++){
       if((this.listUser[i].username == userLoginInfo.username) && (this.listUser[i].password == userLoginInfo.password)){
         console.log('User Loged...', this.userLoginModal.username, this.userLoginModal.password);
-        console.log('listo');
         let userInfoSend: NavigationExtras = {
           state: {
             user: this.listUser[i]
@@ -112,7 +111,6 @@ export class LoginPage implements OnInit {
         }
         if(this.listUser[i].userType == 'STUDENT'){
           let sendInfo = this.route.navigate(['/student'], userInfoSend);
-          console.log('listo');
           return true;
         }else{
           let sendInfo = this.route.navigate(['/professor'], userInfoSend);
