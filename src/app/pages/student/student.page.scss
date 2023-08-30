@@ -1,22 +1,24 @@
-.center-content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+ion-content {
+  --padding-top: 16px;
 
-ion-input {
-    padding: 50%;
-}
-
-.example-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  .content-col {
+    --ion-grid-column-padding: 0px;
   }
 
-  .custom-img {
-    height: auto;
-    border: 2px solid #f4f136; /* Example border color */
-    border-radius: 8px;
+  .user-image {
+    --size: 100px;
+    margin: auto;
   }
+
+  .user-name {
+    text-align: center;
+  }
+}
+
+ion-fab-button {
+  --background: var(--ion-color-step-150, #ffffff);
+  --background-hover: var(--ion-color-step-200, #f2f2f2);
+  --background-focused: var(--ion-color-step-250, #d9d9d9);
+  --color: var(--ion-color-primary, #3880ff);
+}
+
