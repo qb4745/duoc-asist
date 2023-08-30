@@ -1,13 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AnimationController, IonModal, IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 import { UserModel } from 'src/app/models/UserModel';
 import { IUserLogin } from 'src/app/models/IUserLogin';
 import { NavigationExtras, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
-
-
 
 @Component({
   selector: 'app-login',
@@ -17,15 +15,6 @@ import { UserService } from 'src/app/services/user/user.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginPage implements OnInit {
-
-  userLoginModal = {
-    username: '',
-    password: '',
-    email: '',
-  };
-
-  @ViewChild('modal') modal: IonModal | undefined;
-
   hardcodedUsers: UserModel[] = [
     {
         id: 6,
@@ -94,54 +83,18 @@ export class LoginPage implements OnInit {
     },
 ];
 
-
-
-
+  userLoginModal: IUserLogin = {
+    username: '',
+    password: ''
+  };
   listUser: UserModel[] = [];
 
-  constructor(private animationCtrl: AnimationController, private route: Router, private userService: UserService) {}
-
-  generateRandomPassword(length: number): string {
-    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
-    const numericChars = '0123456789';
-    const specialChars = '!@#$%^&*()-_+=<>?';
-
-    const allChars = uppercaseChars + lowercaseChars + numericChars + specialChars;
-    let password = '';
-
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * allChars.length);
-      password += allChars.charAt(randomIndex);
-    }
-
-    return password;
-  }
-
+  constructor(private route: Router, private userService: UserService) {}
 
   ngOnInit() {
     this.userLoginModalRestart();
     const serviceUsers = this.userService.getUserList();
     this.listUser = [...this.hardcodedUsers, ...serviceUsers];
-  }
-
-  userForgotPassword(userLoginInfo: IUserLogin): boolean{
-    const serviceUsers = this.userService.getUserList();
-    this.listUser = [...this.hardcodedUsers, ...serviceUsers.slice(0, serviceUsers.length)];
-    for(let i = 0; i < this.listUser.length; i++){
-      if((this.listUser[i].email == userLoginInfo.email)){
-        console.log('Usuario Encontrado...', this.userLoginModal.username, this.userLoginModal.password);
-        let newPassword = this.generateRandomPassword(12);
-        console.log(newPassword);
-        this.listUser[i].password = newPassword;
-
-
-      } else {
-        console.log('Usuario no encontrado');
-      }
-    }
-    this.userLoginModalRestart();
-    return false;
   }
 
   userLogin(userLoginInfo: IUserLogin): boolean{
@@ -172,7 +125,6 @@ export class LoginPage implements OnInit {
   }
 
 
-
   userLoginModalRestart(): void {
     this.userLoginModal.username = '';
     this.userLoginModal.password = '';
@@ -189,51 +141,4 @@ export class LoginPage implements OnInit {
   printUserService(): void {
     console.log(this.userService);
   }
-
-  ngAfterViewInit() {
-    if (this.modal) {
-      const enterAnimation = (baseEl: HTMLElement) => {
-        const backdropEl = baseEl.querySelector('.backdrop') as HTMLElement;
-
-        const backdropAnimation = this.animationCtrl
-          .create()
-          .addElement(backdropEl)
-          .keyframes([
-            { offset: 0, opacity: '0.01' },
-            { offset: 1, opacity: 'var(--backdrop-opacity)' },
-          ]);
-
-        const wrapperAnimation = this.animationCtrl
-          .create()
-          .addElement(baseEl.shadowRoot?.querySelector('.modal-wrapper') as HTMLElement)
-          .keyframes([
-            { offset: 0, opacity: '0', transform: 'scale(0)' },
-            { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-          ]);
-
-        return this.animationCtrl
-          .create()
-          .addElement(baseEl)
-          .easing('ease-out')
-          .duration(500)
-          .addAnimation([backdropAnimation, wrapperAnimation]);
-      };
-
-      const leaveAnimation = (baseEl: HTMLElement) => {
-        return enterAnimation(baseEl).direction('reverse');
-      };
-
-      this.modal.enterAnimation = enterAnimation;
-      this.modal.leaveAnimation = leaveAnimation;
-    }
-  }
-
-  closeModal() {
-    if (this.modal) {
-      this.modal.dismiss();
-    }
-  }
-
-
 }
-

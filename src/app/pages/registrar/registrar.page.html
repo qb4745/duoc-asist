@@ -1,10 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title class="custom-title">Registrar Page</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Login" defaultHref="/"></ion-back-button>
+      <ion-label class="ion-text-center">Registrar Usuario</ion-label>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="light" class="content-wrapper">
+<ion-content
+  [fullscreen]="true"
+  color="light"
+  class="content-wrapper ion-padding"
+>
   <form [formGroup]="userForm" (ngSubmit)="createUser()">
     <ion-input formControlName="id" type="number" placeholder="ID"></ion-input>
     <ion-input formControlName="rut" type="text" placeholder="RUT"></ion-input>
@@ -54,8 +61,6 @@
       placeholder="Password"
     ></ion-input>
 
-    <ion-button type="submit">Create User</ion-button>
+    <ion-button expand="block" type="submit">Create User</ion-button>
   </form>
-  <ion-button (click)="goToLogin()">Go to Login</ion-button>
-  <ion-button (click)="printUserService()">User Service List</ion-button>
 </ion-content>

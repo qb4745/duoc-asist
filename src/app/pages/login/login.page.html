@@ -22,10 +22,34 @@
   <ion-button expand="block" (click)="goToRegistrar()">
     Registrar Usuario
   </ion-button>
-  <ion-button expand="block" (click)="printListUser()">
-    Imprimir Lista Usuario
-  </ion-button>
-  <ion-button expand="block" (click)="printUserService()">
-    Imprimir User Service
-  </ion-button>
+
+  <p class="ion-text-right" id="modal-trigger">Forgot password?</p>
+
+  <ion-modal trigger="modal-trigger" #modal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Recuperar Contraseña</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input
+            type="email"
+            [(ngModel)]="userLoginModal.email"
+          ></ion-input>
+          <ion-button
+            expand="block"
+            color="warning"
+            (click)="userLogin(userLoginModal)"
+            >Cambiar Contraseña</ion-button
+          >
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

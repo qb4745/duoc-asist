@@ -7,8 +7,6 @@ import { IUserLogin } from 'src/app/models/IUserLogin';
 import { NavigationExtras, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,13 +15,6 @@ import { UserService } from 'src/app/services/user/user.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginPage implements OnInit {
-
-  userLoginModal = {
-    username: '',
-    password: '',
-    email: '',
-  };
-
   @ViewChild('modal') modal: IonModal | undefined;
 
   hardcodedUsers: UserModel[] = [
@@ -94,54 +85,18 @@ export class LoginPage implements OnInit {
     },
 ];
 
-
-
-
+  userLoginModal: IUserLogin = {
+    username: '',
+    password: ''
+  };
   listUser: UserModel[] = [];
 
   constructor(private animationCtrl: AnimationController, private route: Router, private userService: UserService) {}
-
-  generateRandomPassword(length: number): string {
-    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
-    const numericChars = '0123456789';
-    const specialChars = '!@#$%^&*()-_+=<>?';
-
-    const allChars = uppercaseChars + lowercaseChars + numericChars + specialChars;
-    let password = '';
-
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * allChars.length);
-      password += allChars.charAt(randomIndex);
-    }
-
-    return password;
-  }
-
 
   ngOnInit() {
     this.userLoginModalRestart();
     const serviceUsers = this.userService.getUserList();
     this.listUser = [...this.hardcodedUsers, ...serviceUsers];
-  }
-
-  userForgotPassword(userLoginInfo: IUserLogin): boolean{
-    const serviceUsers = this.userService.getUserList();
-    this.listUser = [...this.hardcodedUsers, ...serviceUsers.slice(0, serviceUsers.length)];
-    for(let i = 0; i < this.listUser.length; i++){
-      if((this.listUser[i].email == userLoginInfo.email)){
-        console.log('Usuario Encontrado...', this.userLoginModal.username, this.userLoginModal.password);
-        let newPassword = this.generateRandomPassword(12);
-        console.log(newPassword);
-        this.listUser[i].password = newPassword;
-
-
-      } else {
-        console.log('Usuario no encontrado');
-      }
-    }
-    this.userLoginModalRestart();
-    return false;
   }
 
   userLogin(userLoginInfo: IUserLogin): boolean{
@@ -170,7 +125,6 @@ export class LoginPage implements OnInit {
     return false;
 
   }
-
 
 
   userLoginModalRestart(): void {
@@ -233,7 +187,4 @@ export class LoginPage implements OnInit {
       this.modal.dismiss();
     }
   }
-
-
 }
-

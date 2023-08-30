@@ -1,43 +1,67 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Profesores</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Login" defaultHref="/"></ion-back-button>
+      <ion-label class="ion-text-center">Profesores</ion-label>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="light">
-  <h1 class="center-content" style="padding-bottom: 50px">
-    Welcome {{ professorInfoReceived?.username }}
-  </h1>
-  <ion-list [inset]="true">
-    <ion-list-header>
-      <ion-label>Profesor Information: </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Username: {{ professorInfoReceived?.username }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Name: {{ professorInfoReceived?.firstName }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Last Name: {{ professorInfoReceived?.lastName }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>User Type: {{ professorInfoReceived?.userType }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Email: {{ professorInfoReceived?.email }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>RUT: {{ professorInfoReceived?.rut }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Phone: {{ professorInfoReceived?.phone }}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Address: {{ professorInfoReceived?.address }}</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-button expand="block" color="success" (click)="goToProductList()"
-    >Ir a Listado de Productos</ion-button
-  >
-</ion-content>
+<ion-content
+  [fullscreen]="true"
+  class="ion-padding"
+  *ngIf="professorInfoReceived"
+>
+  <ion-row>
+    <ion-col class="content-col">
+      <ion-thumbnail class="user-image">
+        <img src="/assets/img/avatar.png" />
+      </ion-thumbnail>
+      <ion-text color="dark">
+        <h2 class="user-name ion-text-center">
+          {{professorInfoReceived.firstName}}
+          {{professorInfoReceived.lastName}}.
+        </h2>
+      </ion-text>
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Correo electrónico</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{professorInfoReceived.email}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Rol</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{professorInfoReceived.userType}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">RUT</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{professorInfoReceived.rut}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{professorInfoReceived.phone}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Direccíon</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{professorInfoReceived.address}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nombre de Usuario</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{professorInfoReceived.username}}</ion-input
+          >
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row></ion-content
+>
