@@ -55,4 +55,6 @@ export class RegistrarPage {
   printUserService() {
     console.log(this.userService);
   }
+
+
 }

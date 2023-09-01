@@ -1,18 +1,19 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { UserModel } from 'src/app/models/UserModel';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserModel } from 'src/app/models/UserModel';
 
 @Component({
-  selector: 'app-student',
-  templateUrl: './student.page.html',
-  styleUrls: ['./student.page.scss'],
+  selector: 'app-schedule-details',
+  templateUrl: './schedule-details.page.html',
+  styleUrls: ['./schedule-details.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class StudentPage implements OnInit {
+
+export class ScheduleDetailsPage implements OnInit {
 
   userInfoReceived: UserModel | undefined;
   idUserHtmlRouterLink: any;
@@ -25,15 +26,18 @@ export class StudentPage implements OnInit {
     console.log("Valor obtenido desde URL: ",this.idUserHtmlRouterLink);
   }
 
-
   ngOnInit() {
   }
 
-  goToScheduleDetails() {
-    this.router.navigate(['/schedule-details'], {
+  goToStudent() {
+    this.router.navigate(['/student'], {
       state: {
         user: this.userInfoReceived
       }
     });
   }
+
+
 }
+
+

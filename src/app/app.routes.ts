@@ -18,12 +18,13 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/registrar/registrar.page').then( m => m.RegistrarPage)
   },
   {
-    path: 'registrar',
-    loadComponent: () => import('./pages/registrar/registrar.page').then( m => m.RegistrarPage)
+    path: 'schedule-details',
+    loadComponent: () => import('./pages/student/schedule-details/schedule-details.page').then( m => m.ScheduleDetailsPage)
   },
   {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full',
   }
+
 ];
