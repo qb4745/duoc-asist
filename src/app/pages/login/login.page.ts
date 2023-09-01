@@ -6,6 +6,7 @@ import { UserModel } from 'src/app/models/UserModel';
 import { IUserLogin } from 'src/app/models/IUserLogin';
 import { NavigationExtras, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import { IUserForgotPassword } from 'src/app/models/IUserForgotPassword';
 
 
 
@@ -21,7 +22,10 @@ export class LoginPage implements OnInit {
   userLoginModal = {
     username: '',
     password: '',
-    email: '',
+  };
+
+  userForgotPasswordModal = {
+    username: '',
   };
 
   @ViewChild('modal') modal: IonModal | undefined;
@@ -95,7 +99,7 @@ export class LoginPage implements OnInit {
 ];
 
 
-
+  forgotPasswordResult: string = "";
 
   listUser: UserModel[] = [];
 
@@ -121,28 +125,29 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.userLoginModalRestart();
+    this.userForgotPasswordModalRestart();
     const serviceUsers = this.userService.getUserList();
     this.listUser = [...this.hardcodedUsers, ...serviceUsers];
   }
 
-/*   userForgotPassword(userLoginInfo: IUserLogin): boolean{
+  userForgotPassword(userLoginInfo: IUserForgotPassword): void{
     const serviceUsers = this.userService.getUserList();
     this.listUser = [...this.hardcodedUsers, ...serviceUsers.slice(0, serviceUsers.length)];
     for(let i = 0; i < this.listUser.length; i++){
-      if((this.listUser[i].email == userLoginInfo.email)){
-        console.log('Usuario Encontrado...', this.userLoginModal.username, this.userLoginModal.password);
-        let newPassword = this.generateRandomPassword(12);
-        console.log(newPassword);
+      if((this.listUser[i].username == userLoginInfo.username)){
+        console.log('User Found...', this.userForgotPasswordModal.username);
+        const newPassword = this.generateRandomPassword(8);
         this.listUser[i].password = newPassword;
-
-
-      } else {
-        console.log('Usuario no encontrado');
+        const emailToUser = `Hola ${this.listUser[i].username}., tu nueva contraseña es: ${this.listUser[i].password}`;
+        console.log(emailToUser);
+        this.forgotPasswordResult = emailToUser;
+        this.userForgotPasswordModalRestart();
+        return;
       }
     }
-    this.userLoginModalRestart();
-    return false;
-  } */
+    this.forgotPasswordResult = "Usuario no encontrado, intente nuevamente.";
+    this.userForgotPasswordModalRestart();
+  }
 
   userForgotPassword2(){
     console.log('Usuario Encontrado...');
@@ -180,6 +185,10 @@ export class LoginPage implements OnInit {
   userLoginModalRestart(): void {
     this.userLoginModal.username = '';
     this.userLoginModal.password = '';
+  }
+
+  userForgotPasswordModalRestart(): void {
+    this.userLoginModal.username = '';
   }
 
   goToRegistrar() {

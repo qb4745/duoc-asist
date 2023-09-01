@@ -22,7 +22,7 @@ export class StudentPage implements OnInit {
     // Si quiero obtener un valor por URL usando routerLink
     this.idUserHtmlRouterLink = this.activatedRoute.snapshot.params['id'];
     // Obteniendo el ID podria buscar en algún arreglo o BD el usuario con el id
-    console.log("Valor obtenido desde URL: ",this.idUserHtmlRouterLink);
+    console.log("Valor obtenido desde URL: id #",this.idUserHtmlRouterLink);
   }
 
 
