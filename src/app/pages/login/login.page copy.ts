@@ -103,8 +103,7 @@ export class LoginPage implements OnInit {
 
   listUser: UserModel[] = [];
 
-  constructor(private animationCtrl: AnimationController, private route: Router, private userService: UserService,
-             ) {}
+  constructor(private animationCtrl: AnimationController, private route: Router, private userService: UserService) {}
 
   generateRandomPassword(length: number): string {
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -122,11 +121,6 @@ export class LoginPage implements OnInit {
 
     return password;
   }
-
-
-
-
-
 
 
   ngOnInit() {
