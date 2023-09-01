@@ -125,7 +125,7 @@ export class LoginPage implements OnInit {
     this.listUser = [...this.hardcodedUsers, ...serviceUsers];
   }
 
-  userForgotPassword(userLoginInfo: IUserLogin): boolean{
+/*   userForgotPassword(userLoginInfo: IUserLogin): boolean{
     const serviceUsers = this.userService.getUserList();
     this.listUser = [...this.hardcodedUsers, ...serviceUsers.slice(0, serviceUsers.length)];
     for(let i = 0; i < this.listUser.length; i++){
@@ -142,6 +142,10 @@ export class LoginPage implements OnInit {
     }
     this.userLoginModalRestart();
     return false;
+  } */
+
+  userForgotPassword2(){
+    console.log('Usuario Encontrado...');
   }
 
   userLogin(userLoginInfo: IUserLogin): boolean{

@@ -38,11 +38,11 @@ ion-content {
   }
 
   $categories: (
-    ionic: var(--ion-color-primary),
-    angular: #ac282b,
+    dam: var(--ion-color-primary), // Diseño de Aplicaciones moviles
+    cds: #ac282b, // Calidad de Software
     communication: #8e8d93,
     tooling: #fe4c52,
-    services: #fd8b2d,
+    ingles: #fd8b2d, // Ingles
     design: #fed035,
     workshop: #69bb7b,
     food: #3bc7c4,
