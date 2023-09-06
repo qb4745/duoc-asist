@@ -1,0 +1,13 @@
+.fade-out-button {
+  animation: fade-out 2s ease-in-out;
+  opacity: 100; /* Establece la opacidad inicial en 0 para que el botón esté oculto */
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1; /* Comienza con opacidad completa */
+  }
+  20% {
+    opacity: 0; /* Finaliza con opacidad en 0 (oculto) */
+  }
+}
