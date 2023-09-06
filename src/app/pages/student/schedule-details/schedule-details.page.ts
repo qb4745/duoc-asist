@@ -18,7 +18,7 @@ export class ScheduleDetailsPage implements OnInit {
 
   userInfoReceived: UserModel | undefined;
   idUserHtmlRouterLink: any;
-  selectedStudent: any;
+  selectedAlumno: any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private dataUsuarios: HorariosService) {
@@ -30,11 +30,11 @@ export class ScheduleDetailsPage implements OnInit {
 
     // cargar el archivo JSON filtrado por id
     const filePath = 'assets/data/dataUsuarios.json';
-    const studentId = this.idUserHtmlRouterLink; // El ID del estudiante que deseas obtener
+    const AlumnoId = this.idUserHtmlRouterLink; // El ID del estudiante que deseas obtener
 
-    this.dataUsuarios.getStudentById(filePath, studentId).subscribe(student => {
-      this.selectedStudent = student;
-      console.log("horarios estudiante:", this.selectedStudent); // Aquí tendrás el estudiante con el ID correspondiente
+    this.dataUsuarios.getAlumnoById(filePath, AlumnoId).subscribe(Alumno => {
+      this.selectedAlumno = Alumno;
+      console.log("horarios estudiante:", this.selectedAlumno); // Aquí tendrás el estudiante con el ID correspondiente
     });
 
   }
@@ -42,9 +42,9 @@ export class ScheduleDetailsPage implements OnInit {
   ngOnInit() {
   }
 
-  goToStudent() {
+  goToAlumno() {
     const id = this.idUserHtmlRouterLink;
-    this.router.navigate([`/student/${id}`], {
+    this.router.navigate([`/Alumno/${id}`], {
       state: {
         user: this.userInfoReceived
       }
@@ -53,7 +53,7 @@ export class ScheduleDetailsPage implements OnInit {
 
 
   isFirstAsignaturaInGroup(asignatura: any): boolean {
-    const primeraAsignatura = this.selectedStudent.asignaturas.find(
+    const primeraAsignatura = this.selectedAlumno.asignaturas.find(
       (a: any) => a.nombre === asignatura.nombre
     );
     return asignatura === primeraAsignatura;

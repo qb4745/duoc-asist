@@ -15,9 +15,9 @@ export class FotosService {
 
 
 
-  getStudentById(filePath: string, id: string): Observable<any | undefined> {
+  getAlumnoById(filePath: string, id: string): Observable<any | undefined> {
       return this.loadJSON(filePath).pipe(
-        map((data: any[]) => data.find(student => student.id === id))
+        map((data: any[]) => data.find(Alumno => Alumno.id === id))
       );
   }
 }

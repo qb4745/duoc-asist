@@ -6,12 +6,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
   },
   {
-    path: 'student',
-    loadComponent: () => import('./pages/student/student.page').then( m => m.StudentPage)
+    path: 'Alumno',
+    loadComponent: () => import('./pages/student/student.page').then( m => m.AlumnoPage)
   },
   {
-    path: 'student/:id',
-    loadComponent: () => import('./pages/student/student.page').then( m => m.StudentPage)
+    path: 'Alumno/:id',
+    loadComponent: () => import('./pages/student/student.page').then( m => m.AlumnoPage)
   },
   {
     path: 'professor',

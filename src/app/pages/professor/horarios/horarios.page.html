@@ -11,14 +11,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" *ngIf="selectedStudent">
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="selectedAlumno">
   <p *ngIf="userInfoReceived">
     Nombre: {{ userInfoReceived.firstName }} {{ userInfoReceived.lastName }}
   </p>
   <p>Rol: {{ userInfoReceived?.userType }}</p>
   <h2 class="ion-text-center">Horario de Hoy</h2>
 
-  <ion-list *ngFor="let asignatura of selectedStudent.asignaturas">
+  <ion-list *ngFor="let asignatura of selectedAlumno.asignaturas">
     <ion-item-group>
       <ion-item-divider
         sticky

@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
         firstName: 'Juan',
         lastName: 'González',
         rut: '6666666-6',
-        userType: 'STUDENT',
+        userType: 'Alumno',
         isEnabled: true,
         phone: '123-456-7890',
         address: '123 Worker St',
@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
         firstName: 'Maria',
         lastName: 'López',
         rut: '7777777-7',
-        userType: 'STUDENT',
+        userType: 'Alumno',
         isEnabled: true,
         phone: '234-567-8901',
         address: '456 Baker St',
@@ -63,7 +63,7 @@ export class LoginPage implements OnInit {
         firstName: 'Pedro',
         lastName: 'Martínez',
         rut: '8888888-8',
-        userType: 'STUDENT',
+        userType: 'Alumno',
         isEnabled: true,
         phone: '345-678-9012',
         address: '789 Chef St',
@@ -173,10 +173,10 @@ export class LoginPage implements OnInit {
 
           }
         }
-        if(this.listUser[i].userType == 'STUDENT'){
+        if(this.listUser[i].userType == 'Alumno'){
           const id = this.listUser[i].id;
           this.userLoginModalRestart();
-          let sendInfo = this.route.navigate([`/student/${id}`], userInfoSend);
+          let sendInfo = this.route.navigate([`/Alumno/${id}`], userInfoSend);
           return true;
         }else{
           const id = this.listUser[i].id;

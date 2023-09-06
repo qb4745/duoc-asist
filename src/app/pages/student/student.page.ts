@@ -7,17 +7,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FotosService } from 'src/app/services/fotos/fotos.service';
 
 @Component({
-  selector: 'app-student',
+  selector: 'app-Alumno',
   templateUrl: './student.page.html',
   styleUrls: ['./student.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class StudentPage implements OnInit {
+export class AlumnoPage implements OnInit {
 
   userInfoReceived: UserModel | undefined;
   idUserHtmlRouterLink: any;
-  selectedStudent: any;
+  selectedAlumno: any;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
@@ -30,11 +30,11 @@ export class StudentPage implements OnInit {
 
     // cargar el archivo JSON filtrado por id
     const filePath = 'assets/data/rutaFotos.json';
-    const studentId = this.idUserHtmlRouterLink; // El ID del estudiante que deseas obtener
+    const AlumnoId = this.idUserHtmlRouterLink; // El ID del estudiante que deseas obtener
 
-    this.rutaFotos.getStudentById(filePath, studentId).subscribe(student => {
-      this.selectedStudent = student;
-      console.log("horarios estudiante:", this.selectedStudent); // Aquí tendrás el estudiante con el ID correspondiente
+    this.rutaFotos.getAlumnoById(filePath, AlumnoId).subscribe(Alumno => {
+      this.selectedAlumno = Alumno;
+      console.log("horarios estudiante:", this.selectedAlumno); // Aquí tendrás el estudiante con el ID correspondiente
     });
 
 
