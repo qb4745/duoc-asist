@@ -14,10 +14,10 @@ import { FotosService } from 'src/app/services/fotos/fotos.service';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class ProfessorPage implements OnInit {
+export class DocentePage implements OnInit {
 
 
-  professorInfoReceived: UserModel | undefined;
+  DocenteInfoReceived: UserModel | undefined;
   idUserHtmlRouterLink: any;
   selectedAlumno: any;
 
@@ -25,7 +25,7 @@ export class ProfessorPage implements OnInit {
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private rutaFotos: FotosService) {
-    this.professorInfoReceived = this.router.getCurrentNavigation()?.extras.state?.['user'];
+    this.DocenteInfoReceived = this.router.getCurrentNavigation()?.extras.state?.['user'];
     // Si quiero obtener un valor por URL usando routerLink
     this.idUserHtmlRouterLink = this.activatedRoute.snapshot.params['id'];
     // Obteniendo el ID podria buscar en algún arreglo o BD el usuario con el id
@@ -52,7 +52,7 @@ export class ProfessorPage implements OnInit {
     const id = this.idUserHtmlRouterLink;
     this.router.navigate([`/horarios/${id}`], {
       state: {
-        user: this.professorInfoReceived
+        user: this.DocenteInfoReceived
       }
     });
   }

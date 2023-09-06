@@ -14,12 +14,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/student/student.page').then( m => m.AlumnoPage)
   },
   {
-    path: 'professor',
-    loadComponent: () => import('./pages/professor/professor.page').then( m => m.ProfessorPage)
+    path: 'Docente',
+    loadComponent: () => import('./pages/professor/professor.page').then( m => m.DocentePage)
   },
   {
-    path: 'professor/:id',
-    loadComponent: () => import('./pages/professor/professor.page').then( m => m.ProfessorPage)
+    path: 'Docente/:id',
+    loadComponent: () => import('./pages/professor/professor.page').then( m => m.DocentePage)
   },
   {
     path: 'registrar',

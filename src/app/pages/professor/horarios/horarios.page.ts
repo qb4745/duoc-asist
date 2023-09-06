@@ -42,9 +42,9 @@ export class HorariosPage implements OnInit {
   ngOnInit() {
   }
 
-  goToProfessor() {
+  goToDocente() {
     const id = this.idUserHtmlRouterLink;
-    this.router.navigate([`/professor/${id}`], {
+    this.router.navigate([`/Docente/${id}`], {
       state: {
         user: this.userInfoReceived
       }

@@ -12,8 +12,8 @@ export class UserModel {
         public username: string,
         public password: string
     ) {
-        if (userType !== "Alumno" && userType !== "professor") {
-            throw new Error("Invalid userType value. Must be 'Alumno' or 'professor'.");
+        if (userType !== "Alumno" && userType !== "Docente") {
+            throw new Error("Invalid userType value. Must be 'Alumno' or 'Docente'.");
         }
     }
 
