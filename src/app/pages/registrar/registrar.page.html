@@ -1,0 +1,66 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Login" defaultHref="/"></ion-back-button>
+      <ion-label class="ion-text-center">Registrar Usuario</ion-label>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  color="light"
+  class="content-wrapper ion-padding"
+>
+  <form [formGroup]="userForm" (ngSubmit)="createUser()">
+    <ion-input formControlName="id" type="number" placeholder="ID"></ion-input>
+    <ion-input formControlName="rut" type="text" placeholder="RUT"></ion-input>
+    <ion-input
+      formControlName="email"
+      type="email"
+      placeholder="Email"
+    ></ion-input>
+    <ion-input
+      formControlName="firstName"
+      type="text"
+      placeholder="First Name"
+    ></ion-input>
+    <ion-input
+      formControlName="lastName"
+      type="text"
+      placeholder="Last Name"
+    ></ion-input>
+    <ion-input
+      formControlName="userType"
+      type="text"
+      placeholder="User Type"
+    ></ion-input>
+    <ion-label type="text">User Enabled</ion-label>
+    <ion-checkbox
+      formControlName="isEnabled"
+      label="User Enabled"
+    ></ion-checkbox>
+    <ion-input
+      formControlName="phone"
+      type="tel"
+      placeholder="Phone"
+    ></ion-input>
+    <ion-input
+      formControlName="address"
+      type="text"
+      placeholder="Address"
+    ></ion-input>
+    <ion-input
+      formControlName="username"
+      type="text"
+      placeholder="Username"
+    ></ion-input>
+    <ion-input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+    ></ion-input>
+
+    <ion-button expand="block" type="submit">Create User</ion-button>
+  </form>
+</ion-content>

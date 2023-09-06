@@ -1,0 +1,71 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Login" defaultHref="/"></ion-back-button>
+      <ion-label class="ion-text-center">Profesores</ion-label>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  class="ion-padding"
+  *ngIf="DocenteInfoReceived"
+>
+  <ion-row>
+    <ion-col class="content-col">
+      <ion-thumbnail class="user-image">
+        <img [src]="selectedAlumno?.profilePic" />
+      </ion-thumbnail>
+      <ion-text color="dark">
+        <h2 class="user-name ion-text-center">
+          {{DocenteInfoReceived.firstName}}
+          {{DocenteInfoReceived.lastName}}.
+        </h2>
+      </ion-text>
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Correo electrónico</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{DocenteInfoReceived.email}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Rol</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{DocenteInfoReceived.userType}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">RUT</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{DocenteInfoReceived.rut}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{DocenteInfoReceived.phone}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Direccíon</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{DocenteInfoReceived.address}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nombre de Usuario</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{DocenteInfoReceived.username}}</ion-input
+          >
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-button expand="block" color="warning" (click)="goToHorarios()"
+    >Horario de hoy</ion-button
+  ></ion-content
+>

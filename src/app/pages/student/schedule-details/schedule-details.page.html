@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button text="Alumno" defaultHref="goToAlumno()"
+          >Estudiantes</ion-back-button
+        >
+        <ion-label class="ion-text-center">Estudiantes</ion-label>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="selectedAlumno">
+  <p *ngIf="userInfoReceived">
+    Nombre: {{ userInfoReceived.firstName }} {{ userInfoReceived.lastName }}
+  </p>
+  <p>Carrera: {{ selectedAlumno.nombre_carrera }}</p>
+  <h2 class="ion-text-center">Horario de Hoy</h2>
+
+  <ion-list *ngFor="let asignatura of selectedAlumno.asignaturas">
+    <ion-item-group>
+      <ion-item-divider
+        sticky
+        *ngFor="let horario of asignatura.horarios_de_clase"
+      >
+        <ion-label
+          *ngIf="horario.dia_de_la_semana === 'Lunes' && isFirstAsignaturaInGroup(asignatura)"
+        >
+          {{ horario.hora_de_inicio }}
+        </ion-label>
+      </ion-item-divider>
+      <ion-item-sliding #slidingItem track="Programación">
+        <ion-item *ngFor="let horario of asignatura.horarios_de_clase">
+          <ion-label>
+            <!-- implementar json con horarios de clases y categorías para aplicar colores según categoría -->
+            <h3
+              *ngIf="horario.dia_de_la_semana === 'Lunes' && isFirstAsignaturaInGroup(asignatura)"
+            >
+              {{ asignatura.nombre }}
+            </h3>
+            <p *ngIf="horario.dia_de_la_semana === 'Lunes'">
+              {{ horario.hora_de_inicio }} &mdash; {{ horario.hora_de_fin }}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

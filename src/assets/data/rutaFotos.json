@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "profilePic": "/assets/img/usuarios/bear.jpg"
+    },
+    {
+        "id": "2",
+        "profilePic": "/assets/img/usuarios/duck.jpg"
+    },
+    {
+        "id": "3",
+        "profilePic": "/assets/img/usuarios/iguana.jpg"
+    },
+    {
+        "id": "4",
+        "profilePic": "/assets/img/usuarios/kitten.jpg"
+    },
+    {
+        "id": "5",
+        "profilePic": "/assets/img/usuarios/lion.jpg"
+    }
+]
