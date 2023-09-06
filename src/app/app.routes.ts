@@ -34,9 +34,18 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/student/schedule-details/schedule-details.page').then( m => m.ScheduleDetailsPage)
   },
   {
+    path: 'horarios',
+    loadComponent: () => import('./pages/professor/horarios/horarios.page').then( m => m.HorariosPage)
+  },
+  {
+    path: 'horarios/:id',
+    loadComponent: () => import('./pages/professor/horarios/horarios.page').then( m => m.HorariosPage)
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full',
   }
+
 
 ];
