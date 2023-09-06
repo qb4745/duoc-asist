@@ -6,9 +6,11 @@
   ></ion-img>
   <ion-item>
     <ion-label position="floating">Usuario</ion-label>
-    <ion-input type="email" [(ngModel)]="userLoginModal.username"></ion-input>
+    <ion-input type="text" [(ngModel)]="userLoginModal.username"></ion-input>
   </ion-item>
-
+  <ion-item
+    ><ion-label><p>{{ userNameError }}</p></ion-label></ion-item
+  >
   <ion-item>
     <ion-label position="floating">Contraseña</ion-label>
     <ion-input
