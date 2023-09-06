@@ -1,0 +1,227 @@
+[
+    {
+        "id": "1",
+        "nombre_carrera": "Ingeniería de Software",
+        "asignaturas": [
+            {
+                "nombre": "Programación",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "08:00",
+                        "hora_de_fin": "10:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "10:00",
+                        "hora_de_fin": "12:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Bases de Datos",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "10:00",
+                        "hora_de_fin": "12:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "11:00",
+                        "hora_de_fin": "13:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Diseño Web",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "14:00",
+                        "hora_de_fin": "16:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "16:00",
+                        "hora_de_fin": "18:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "nombre_carrera": "Ciencias de la Computación",
+        "asignaturas": [
+            {
+                "nombre": "Algoritmos",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "09:00",
+                        "hora_de_fin": "11:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "11:00",
+                        "hora_de_fin": "13:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Estructuras de Datos",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "14:00",
+                        "hora_de_fin": "16:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "16:00",
+                        "hora_de_fin": "18:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Inteligencia Artificial",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "18:00",
+                        "hora_de_fin": "20:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "20:00",
+                        "hora_de_fin": "22:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "nombre_carrera": "Ingeniería Eléctrica",
+        "asignaturas": [
+            {
+                "nombre": "Circuitos Eléctricos",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "08:00",
+                        "hora_de_fin": "10:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "10:00",
+                        "hora_de_fin": "12:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Electrónica",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "14:00",
+                        "hora_de_fin": "16:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "16:00",
+                        "hora_de_fin": "18:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Sistemas de Control",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "18:00",
+                        "hora_de_fin": "20:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "20:00",
+                        "hora_de_fin": "22:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "nombre_carrera": "Psicología",
+        "asignaturas": [
+            {
+                "nombre": "Psicología Clínica",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "09:00",
+                        "hora_de_fin": "11:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "11:00",
+                        "hora_de_fin": "13:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Psicología del Desarrollo",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "14:00",
+                        "hora_de_fin": "16:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "16:00",
+                        "hora_de_fin": "18:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "nombre_carrera": "Medicina",
+        "asignaturas": [
+            {
+                "nombre": "Anatomía",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "08:00",
+                        "hora_de_fin": "10:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "10:00",
+                        "hora_de_fin": "12:00"
+                    }
+                ]
+            },
+            {
+                "nombre": "Cirugía",
+                "horarios_de_clase": [
+                    {
+                        "dia_de_la_semana": "Lunes",
+                        "hora_de_inicio": "14:00",
+                        "hora_de_fin": "16:00"
+                    },
+                    {
+                        "dia_de_la_semana": "Martes",
+                        "hora_de_inicio": "16:00",
+                        "hora_de_fin": "18:00"
+                    }
+                ]
+            }
+        ]
+    }
+]

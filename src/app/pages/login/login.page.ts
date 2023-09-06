@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
 
   hardcodedUsers: UserModel[] = [
     {
-        id: 6,
+        id: 1,
         email: 'juan@duocuc.cl',
         firstName: 'Juan',
         lastName: 'González',
@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
         password: 'juang123'
     },
     {
-        id: 7,
+        id: 2,
         email: 'maria@duocuc.cl',
         firstName: 'Maria',
         lastName: 'López',
@@ -58,7 +58,7 @@ export class LoginPage implements OnInit {
         password: 'maria123'
     },
     {
-        id: 8,
+        id: 3,
         email: 'pedro@duocuc.cl',
         firstName: 'Pedro',
         lastName: 'Martínez',
@@ -71,7 +71,7 @@ export class LoginPage implements OnInit {
         password: 'pedro123'
     },
     {
-        id: 9,
+        id: 4,
         email: 'laura@duocuc.cl',
         firstName: 'Laura',
         lastName: 'Rodríguez',
@@ -84,7 +84,7 @@ export class LoginPage implements OnInit {
         password: 'laura123'
     },
     {
-        id: 10,
+        id: 5,
         email: 'carlos@duocuc.cl',
         firstName: 'Carlos',
         lastName: 'Gómez',
@@ -142,9 +142,11 @@ export class LoginPage implements OnInit {
     for(let i = 0; i < this.listUser.length; i++){
       if((this.listUser[i].username == userLoginInfo.username)){
         console.log('User Found...', this.userForgotPasswordModal.username);
-        const newPassword = this.generateRandomPassword(8);
+        // Generar nueva contraseña
+        //const newPassword = this.generateRandomPassword(8);
+        const newPassword = "1234";
         this.listUser[i].password = newPassword;
-        const emailToUser = `Hola ${this.listUser[i].username}., tu nueva contraseña es: ${this.listUser[i].password}`;
+        const emailToUser = `Hola ${this.listUser[i].username}, tu nueva contraseña es: ${this.listUser[i].password}`;
         console.log(emailToUser);
         this.forgotPasswordResult = emailToUser;
         this.userForgotPasswordModalRestart();
@@ -153,10 +155,6 @@ export class LoginPage implements OnInit {
     }
     this.forgotPasswordResult = "Usuario no encontrado, intente nuevamente.";
     this.userForgotPasswordModalRestart();
-  }
-
-  userForgotPassword2(){
-    console.log('Usuario Encontrado...');
   }
 
   userLogin(userLoginInfo: IUserLogin): boolean{
@@ -172,10 +170,14 @@ export class LoginPage implements OnInit {
           }
         }
         if(this.listUser[i].userType == 'STUDENT'){
-          let sendInfo = this.route.navigate(['/student'], userInfoSend);
+          const id = this.listUser[i].id;
+          this.userLoginModalRestart();
+          let sendInfo = this.route.navigate([`/student/${id}`], userInfoSend);
           return true;
         }else{
-          let sendInfo = this.route.navigate(['/professor'], userInfoSend);
+          const id = this.listUser[i].id;
+          this.userLoginModalRestart();
+          let sendInfo = this.route.navigate([`/professor/${id}`], userInfoSend);
           return true;
         }
 
@@ -185,6 +187,9 @@ export class LoginPage implements OnInit {
     return false;
 
   }
+
+
+
 
 
 

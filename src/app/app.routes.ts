@@ -10,7 +10,15 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/student/student.page').then( m => m.StudentPage)
   },
   {
+    path: 'student/:id',
+    loadComponent: () => import('./pages/student/student.page').then( m => m.StudentPage)
+  },
+  {
     path: 'professor',
+    loadComponent: () => import('./pages/professor/professor.page').then( m => m.ProfessorPage)
+  },
+  {
+    path: 'professor/:id',
     loadComponent: () => import('./pages/professor/professor.page').then( m => m.ProfessorPage)
   },
   {
@@ -19,6 +27,10 @@ export const routes: Routes = [
   },
   {
     path: 'schedule-details',
+    loadComponent: () => import('./pages/student/schedule-details/schedule-details.page').then( m => m.ScheduleDetailsPage)
+  },
+  {
+    path: 'schedule-details/:id',
     loadComponent: () => import('./pages/student/schedule-details/schedule-details.page').then( m => m.ScheduleDetailsPage)
   },
   {
