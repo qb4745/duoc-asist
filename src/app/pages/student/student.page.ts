@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { UserModel } from 'src/app/models/UserModel';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HorariosService } from 'src/app/services/horarios/horarios.service';
+import { FotosService } from 'src/app/services/fotos/fotos.service';
 
 @Component({
   selector: 'app-student',
@@ -17,14 +17,25 @@ export class StudentPage implements OnInit {
 
   userInfoReceived: UserModel | undefined;
   idUserHtmlRouterLink: any;
+  selectedStudent: any;
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,
+              private rutaFotos: FotosService) {
     this.userInfoReceived = this.router.getCurrentNavigation()?.extras.state?.['user'];
     // Si quiero obtener un valor por URL usando routerLink
     this.idUserHtmlRouterLink = this.activatedRoute.snapshot.params['id'];
     // Obteniendo el ID podria buscar en algún arreglo o BD el usuario con el id
     console.log("Valor obtenido desde URL: id #",this.idUserHtmlRouterLink);
+
+    // cargar el archivo JSON filtrado por id
+    const filePath = 'assets/data/rutaFotos.json';
+    const studentId = this.idUserHtmlRouterLink; // El ID del estudiante que deseas obtener
+
+    this.rutaFotos.getStudentById(filePath, studentId).subscribe(student => {
+      this.selectedStudent = student;
+      console.log("horarios estudiante:", this.selectedStudent); // Aquí tendrás el estudiante con el ID correspondiente
+    });
 
 
 

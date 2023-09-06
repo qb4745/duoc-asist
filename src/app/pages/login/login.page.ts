@@ -100,6 +100,8 @@ export class LoginPage implements OnInit {
 
 
   forgotPasswordResult: string = "";
+  userNameError: string = "";
+  passwordError: string = "";
 
   listUser: UserModel[] = [];
 
@@ -122,11 +124,6 @@ export class LoginPage implements OnInit {
 
     return password;
   }
-
-
-
-
-
 
 
   ngOnInit() {
@@ -152,16 +149,23 @@ export class LoginPage implements OnInit {
         this.userForgotPasswordModalRestart();
         return;
       }
+
     }
     this.forgotPasswordResult = "Usuario no encontrado, intente nuevamente.";
     this.userForgotPasswordModalRestart();
   }
 
+
   userLogin(userLoginInfo: IUserLogin): boolean{
     const serviceUsers = this.userService.getUserList();
     this.listUser = [...this.hardcodedUsers, ...serviceUsers.slice(0, serviceUsers.length)];
     for(let i = 0; i < this.listUser.length; i++){
-      if((this.listUser[i].username == userLoginInfo.username) && (this.listUser[i].password == userLoginInfo.password)){
+
+      if((this.listUser[i].username != userLoginInfo.username)){
+        this.userNameError = "Nombre de Usuario incorrecto.";
+      }
+      else if((this.listUser[i].username == userLoginInfo.username) && (this.listUser[i].password == userLoginInfo.password)){
+        this.userNameError = "";
         console.log('User Loged...', this.userLoginModal.username, this.userLoginModal.password);
         let userInfoSend: NavigationExtras = {
           state: {
@@ -187,10 +191,6 @@ export class LoginPage implements OnInit {
     return false;
 
   }
-
-
-
-
 
 
   userLoginModalRestart(): void {
@@ -260,4 +260,3 @@ export class LoginPage implements OnInit {
 
 
 }
-
