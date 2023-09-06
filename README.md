@@ -1,8 +1,11 @@
 # Duoc-asist codigo de ionic 7 
+
 login realizado para ingreso de usuario en perfiles
 de docente y alumno con sus 
 respectivos horarios y datos personales 
 disfruta. 
+
+--- PRIMERA ENTREGA ---
 
 Caso
 En el contexto actual de la pandemia que a nivel mundial se está viviendo, han
@@ -25,9 +28,3 @@ Falta de tiempo adecuado para el registro
 Confusión en el registro de los alumnos debido al no poder reconocer visualmente a los alumnos a causa de
 las mascarillas
 -
-Olvido por parte del docente de realizar esta actividad
-4
-Subdirección de Evaluación de Resultados de Aprendizaje - Subdirección de Diseño Instruccional 2- 2022
-Con el fin de terminar con esta problemática en forma definitiva, se ha contactado a alumnos de Duoc UC para que
-desarrollen una Aplicación Móvil RegistrAPP capaz de ser utilizada en plataformas tanto como Android e iOS que permita
-que cada alumno registre su propia asistencia.
