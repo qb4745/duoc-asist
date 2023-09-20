@@ -1,0 +1,7 @@
+{
+  "name": "PrimerGuard",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
